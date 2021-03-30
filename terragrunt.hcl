@@ -6,7 +6,7 @@ remote_state {
   }
   config = {
     bucket = "nulldiv-web-tf"
-    key = "${path_relative_to_include()}/state/tfstate.tfstate"
+    key = "${path_relative_to_include()}/state/tfstate.state"
     region         = "us-east-1"
     encrypt        = true
   }
