@@ -1,5 +1,5 @@
 .terraform/
 .terraform*
-local.env
-kops_stuff/kops
-kops_stuff/kubectl
+*local.env
+kops
+kubectl
