@@ -32,5 +32,5 @@ resource "aws_iam_user_group_membership" "kops_user_group" {
 
 output "kops_user_secret" {
   sensitive = true
-  value = aws_iam_access_key.kops_user_key.secret
+  value     = aws_iam_access_key.kops_user_key.secret
 }
