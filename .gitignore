@@ -1,5 +1,7 @@
 .terraform/
+tmp/
 .terraform*
 *local.env
 kops
 kubectl
+backend.tf
