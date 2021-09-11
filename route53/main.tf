@@ -2,10 +2,6 @@ resource "aws_route53_zone" "primary" {
   name = var.domain_name
 }
 
-resource "aws_route53_zone" "k8s" {
-  name = var.k8s_sub
-}
-
 resource "aws_route53_record" "domain_ns" {
   allow_overwrite = true
   name            = var.domain_name
@@ -18,21 +14,6 @@ resource "aws_route53_record" "domain_ns" {
     aws_route53_zone.primary.name_servers[1],
     aws_route53_zone.primary.name_servers[2],
     aws_route53_zone.primary.name_servers[3],
-  ]
-}
-
-resource "aws_route53_record" "k8s_domain_ns" {
-  allow_overwrite = true
-  name            = var.k8s_sub
-  ttl             = 300
-  type            = "NS"
-  zone_id         = aws_route53_zone.primary.zone_id
-
-  records = [
-    aws_route53_zone.k8s.name_servers[0],
-    aws_route53_zone.k8s.name_servers[1],
-    aws_route53_zone.k8s.name_servers[2],
-    aws_route53_zone.k8s.name_servers[3],
   ]
 }
 
