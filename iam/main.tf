@@ -18,19 +18,10 @@ resource "aws_iam_user" "kops_user" {
   name = "kops"
 }
 
-resource "aws_iam_access_key" "kops_user_key" {
-  user = aws_iam_user.kops_user.name
-}
-
 resource "aws_iam_user_group_membership" "kops_user_group" {
   user = aws_iam_user.kops_user.name
 
   groups = [
     aws_iam_group.kops_group.name,
   ]
-}
-
-output "kops_user_secret" {
-  sensitive = true
-  value     = aws_iam_access_key.kops_user_key.secret
 }

@@ -1,0 +1,11 @@
+[tool.pylint.format]
+indent-string='  '
+
+[tool.autopep8]
+indent-size=2
+
+[tool.pylint."MESSAGES CONTROL"]
+disable = [
+    "missing-module-docstring",
+    "missing-function-docstring"
+]

@@ -5,3 +5,4 @@ tmp/
 kops
 kubectl
 backend.tf
+venv/
