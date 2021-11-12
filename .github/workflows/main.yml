@@ -19,6 +19,6 @@ jobs:
           echo "${TERRAGRUNT_SHA256SUM}  ./terragrunt" > terragrunt-${TERRAGRUNT_VERSION}_SHA256SUMS && \
           sha256sum -c terragrunt-${TERRAGRUNT_VERSION}_SHA256SUMS && \
           chmod +x ./terragrunt && \
-          mv ./terragrunt /usr/bin/terragrunt
+          sudo mv ./terragrunt /usr/bin/terragrunt
       - name: test terragrunt binary
         run: terragrunt version
