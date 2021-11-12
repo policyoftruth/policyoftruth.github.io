@@ -9,8 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      TERRAGRUNT_VERSION=0.31.7
-      TERRAGRUNT_SHA256SUM=c1d863e8fa1c994a79338b28ec72dd97a97cff5d485691832c7304b43886a929
+      TERRAGRUNT_VERSION: 0.31.7
+      TERRAGRUNT_SHA256SUM: c1d863e8fa1c994a79338b28ec72dd97a97cff5d485691832c7304b43886a929 # pragma: allowlist secret
     steps:
       - uses: actions/checkout@v2
       - name: download terragrunt
