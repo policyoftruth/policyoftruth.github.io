@@ -1,19 +1,20 @@
 {
 	"name": "my-devcontainer-config",
-	"extensions": [
-		"EliverLara.andromeda",
-		"4ops.terraform",
-		"oderwat.indent-rainbow",
-		"esbenp.prettier-vscode",
-		"vscode-icons-team.vscode-icons"
-	],
-	"postCreateCommand": "/bin/bash ./.devcontainer/post-install.sh",
+	"customizations": {
+	  "vscode": {
+		"extensions": [
+			  "EliverLara.andromeda",
+			  "4ops.terraform",
+			  "oderwat.indent-rainbow",
+			  "vscode-icons-team.vscode-icons",
+			  "ms-python.python"
+		  ]
+	  }
+	},
 	"features": {
-		"ghcr.io/devcontainers/features/terraform:1": {
-			"installTFsec": true,
-			"installTerraformDocs": true
-		},
-		"ghcr.io/devcontainers/features/azure-cli:1": {
-		}
+	  "ghcr.io/devcontainers/features/terraform:1": {
+		"installTFsec": true,
+		"installTerraformDocs": true
+	  }
 	}
-}
+  }
