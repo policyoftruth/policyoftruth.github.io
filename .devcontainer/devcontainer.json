@@ -1,20 +1,22 @@
 {
 	"name": "my-devcontainer-config",
 	"customizations": {
-	  "vscode": {
-		"extensions": [
-			  "EliverLara.andromeda",
-			  "4ops.terraform",
-			  "oderwat.indent-rainbow",
-			  "vscode-icons-team.vscode-icons",
-			  "ms-python.python"
-		  ]
-	  }
+		"vscode": {
+			"settings": {
+				"editor.disableMonospaceOptimizations": true
+			},
+			"extensions": [
+				"EliverLara.andromeda",
+				"4ops.terraform",
+				"oderwat.indent-rainbow",
+				"vscode-icons-team.vscode-icons"
+			]
+		}
 	},
 	"features": {
-	  "ghcr.io/devcontainers/features/terraform:1": {
-		"installTFsec": true,
-		"installTerraformDocs": true
-	  }
+		"ghcr.io/devcontainers/features/terraform:1": {
+			"installTFsec": true,
+			"installTerraformDocs": true
+		}
 	}
-  }
+}
