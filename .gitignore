@@ -4,3 +4,4 @@ tmp/
 *local.env
 backend.tf
 venv/
+provider.tf
