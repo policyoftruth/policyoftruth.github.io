@@ -1,0 +1,39 @@
+pipeline:
+  name: my-harness-pipeline
+  identifier: myharnesspipeline
+  projectIdentifier: mywebsite
+  orgIdentifier: default
+  tags: {}
+  variables:
+    - name: MYNAME
+      type: String
+      description: ""
+      value: Erin
+  properties:
+    ci:
+      codebase:
+        connectorRef: account.Github
+        repoName: " policyoftruth.github.io"
+        build: <+input>
+  stages:
+    - stage:
+        name: Terragrunt Plan
+        identifier: Terragrunt_Plan
+        type: CI
+        spec:
+          cloneCodebase: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run_1
+                  identifier: Run_1
+                  spec:
+                    shell: Bash
+                    command: terragrunt run-all plan
