@@ -1,7 +1,5 @@
-.terraform/
-tmp/
-.terraform*
-*local.env
-backend.tf
-venv/
-provider.tf
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
