@@ -27,7 +27,7 @@ url: "https://winningham.me" # the base hostname & protocol for your site, e.g. 
 github_username:  policyoftruth
 
 # Build settings
-theme: midnight
+theme: Midnight
 plugins:
   - jekyll-feed
 
