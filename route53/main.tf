@@ -35,7 +35,7 @@ resource "aws_route53_record" "www_cname" {
   name    = "www"
   type    = "CNAME"
   ttl     = "3600"
-  records = ["policyoftruth.github.io"]
+  records = ["policyoftruth.github.io."]
 }
 
 output "ns_output" {
