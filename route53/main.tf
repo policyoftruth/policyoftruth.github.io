@@ -2,20 +2,7 @@ resource "aws_route53_zone" "primary" {
   name = var.domain_name
 }
 
-resource "aws_route53_record" "domain_ns" {
-  allow_overwrite = true
-  name            = var.domain_name
-  ttl             = 300
-  type            = "NS"
-  zone_id         = aws_route53_zone.primary.zone_id
 
-  records = [
-    aws_route53_zone.primary.name_servers[0],
-    aws_route53_zone.primary.name_servers[1],
-    aws_route53_zone.primary.name_servers[2],
-    aws_route53_zone.primary.name_servers[3],
-  ]
-}
 
 resource "aws_route53_record" "pages_a" {
   zone_id = aws_route53_zone.primary.zone_id
