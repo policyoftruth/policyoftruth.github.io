@@ -1,14 +1,17 @@
-# gh pages site w/route53 dns via tf
+# GitHub static site with Route53 DNS via Terragrunt
 
-## **manual steps**
-1. purchase route53 domain name
-1. create s3 bucket for tf state
-1. configure/run tf
-1. update domain reg with your nameservers from tf outputs
+## **Manual steps**
+- Purchase route53 domain name
+- Create s3 bucket for state
+- Configure/run Terragrunt
+- Update domain reg with your nameservers from tf outputs
 
-## **todo**
-1. pipeline with github actions
+## **Commands**
+- `terragrunt run --all plan`
 
-## **resources**
-1. <https://docs.github.com/en/github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site>
-1. <https://docs.github.com/en/github/working-with-github-pages/troubleshooting-custom-domains-and-github-pages#cname-errors>
+## **ToDo**
+- Pipeline with github actions
+
+## **Resources**
+- <https://docs.github.com/en/github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site>
+- <https://docs.github.com/en/github/working-with-github-pages/troubleshooting-custom-domains-and-github-pages#cname-errors>
