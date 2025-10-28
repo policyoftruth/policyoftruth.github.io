@@ -30,24 +30,6 @@ source local.env && aws route53domains update-domain-nameservers \
     Name=ns-1909.awsdns-46.co.uk
 ```
 
-## **Security**
-
-⚠️ **See [SECURITY.md](SECURITY.md) for complete security checklist**
-
-### Immediate Actions Required
-1. **Rotate AWS credentials** (exposed credentials need rotation)
-2. **Harden S3 backend**: `source local.env && ./scripts/harden_existing_backend.sh`
-3. **Enable HTTPS** on GitHub Pages after DNS validation
-
-### Current Security Status
-- ✅ S3 encryption enabled
-- ✅ S3 versioning enabled  
-- ✅ TLS-only bucket policy
-- ⚠️ Need to add public access blocking (run hardening script)
-- ⚠️ Need to rotate AWS credentials
-
-**Cost Impact**: $0.00 (all recommended improvements are free)
-
 ## **ToDo**
 - Pipeline with github actions
 - Rotate to IAM roles with OIDC (remove long-lived credentials)
