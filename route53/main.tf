@@ -2,8 +2,6 @@ resource "aws_route53_zone" "primary" {
   name = var.domain_name
 }
 
-
-
 resource "aws_route53_record" "pages_a" {
   zone_id = aws_route53_zone.primary.zone_id
   name    = var.domain_name
