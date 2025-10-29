@@ -122,6 +122,37 @@ h2 {
     text-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
 }
 
+/* Color variety for post titles */
+article:nth-child(6n+1) h2 {
+    color: #00ff88;
+    text-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
+}
+
+article:nth-child(6n+2) h2 {
+    color: #00ffff;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+article:nth-child(6n+3) h2 {
+    color: #88ff00;
+    text-shadow: 0 0 5px rgba(136, 255, 0, 0.5);
+}
+
+article:nth-child(6n+4) h2 {
+    color: #00ccff;
+    text-shadow: 0 0 5px rgba(0, 204, 255, 0.5);
+}
+
+article:nth-child(6n+5) h2 {
+    color: #ff00ff;
+    text-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
+}
+
+article:nth-child(6n+6) h2 {
+    color: #00ff41;
+    text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+}
+
 .date {
     color: #00cc33;
     font-size: 0.85em;
@@ -183,6 +214,7 @@ pre code {
     background: none;
 }
 
+
 a {
     color: #00ffff;
     text-decoration: none;
@@ -194,6 +226,49 @@ a:hover {
     color: #00ff88;
     border-bottom-color: #00ff88;
     text-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin: 40px 0;
+    border: 1px solid #00ff41;
+    background-color: rgba(0, 255, 65, 0.02);
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+}
+
+.page-btn {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #00ff41;
+    border: 1px solid #00ff41;
+    padding: 10px 20px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+}
+
+.page-btn:hover:not(:disabled) {
+    background-color: rgba(0, 255, 65, 0.2);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+    color: #00ff88;
+    border-color: #00ff88;
+}
+
+.page-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    text-shadow: none;
+}
+
+.page-info {
+    color: #00ff41;
+    font-size: 0.9em;
+    letter-spacing: 1px;
 }
 
 footer {
@@ -217,5 +292,15 @@ footer {
 
     h2 {
         font-size: 1.2em;
+    }
+
+    .pagination {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .page-btn {
+        width: 100%;
+        padding: 12px;
     }
 }

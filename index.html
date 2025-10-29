@@ -13,7 +13,9 @@
                 <p class="subtitle">// decrypted thoughts from the void</p>
             </header>
 
-            <article>
+            <div id="posts-container">
+
+            <article class="post-entry">
                 <div class="post-header">
                     <h2>Welcome to the Grid</h2>
                     <span class="date">2024.01.15 23:42:00</span>
@@ -38,28 +40,29 @@
                 </div>
             </article>
 
-            <article>
+            <article class="post-entry">
                 <div class="post-header">
                     <h2>On Minimalism in Computing</h2>
-                    <span class="date">2024.01.10 14:20:33</span>
+                    <span class="date">2025.10.28 00:20:33</span>
                 </div>
                 <p>
                     There's something liberating about stripping away the
                     unnecessary. Modern web development has become
-                    bloated—megabytes of JavaScript just to display text. We've
-                    forgotten that simplicity is a feature, not a limitation.
+                    bloated bits of unnecessary frameworks that assault your
+                    senses. We've forgotten that simplicity is a feature, not
+                    a limitation.
                 </p>
                 <p>
-                    A static HTML file loads instantly. No webpack, no
+                    A static HTML site loads instantly. No unpacking and no
                     node_modules directory that could collapse into a black
-                    hole. Just open your editor, write, save, deploy. The
-                    barrier between thought and publication collapses to zero.
+                    hole. You just open your editor, write, save, and deploy.
+                    The barrier between thought and publication now collapses
+                    to zero.
                 </p>
-                <pre><code>
-$ echo "hello world" &gt; index.html
+<pre><code>$ echo "hello world" &gt; index.html
 $ git push
 # shipped.
-                </code></pre>
+</code></pre>
                 <p>
                     This is how it should be. Fast. Efficient. Under your
                     control.
@@ -71,17 +74,17 @@ $ git push
                 </div>
             </article>
 
-            <article>
+            <article class="post-entry">
                 <div class="post-header">
                     <h2>First Transmission</h2>
-                    <span class="date">2024.01.01 00:00:01</span>
+                    <span class="date">2025.10.28 00:00:01</span>
                 </div>
                 <p>System initialized. Beginning documentation protocol.</p>
                 <p>
-                    This space will serve as a chronicle—a append-only log of
+                    This space will serve as an append-only log of
                     discoveries, experiments, and ideas worth preserving. No
-                    algorithms deciding what you see. No tracking. No analytics.
-                    Just signal.
+                    algorithms will decide what you see. No tracking. No analytics.
+                    Pure signal.
                 </p>
                 <p>
                     If you're reading this, you found it intentionally. Welcome.
@@ -91,10 +94,76 @@ $ git push
                     <span class="tag">introduction</span>
                 </div>
             </article>
+            </div>
+
+            <nav id="pagination" class="pagination">
+                <button id="prev-btn" class="page-btn">&lt;&lt; prev</button>
+                <span id="page-info" class="page-info"></span>
+                <button id="next-btn" class="page-btn">next &gt;&gt;</button>
+            </nav>
 
             <footer>
                 <p>&gt; end of transmission</p>
             </footer>
         </div>
+
+        <script>
+            // Pagination logic
+            const postsPerPage = 10;
+            let currentPage = 1;
+
+            const postsContainer = document.getElementById('posts-container');
+            const posts = Array.from(document.querySelectorAll('.post-entry'));
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const pageInfo = document.getElementById('page-info');
+            const pagination = document.getElementById('pagination');
+
+            const totalPages = Math.ceil(posts.length / postsPerPage);
+
+            // Hide pagination if 10 or fewer posts
+            if (posts.length <= postsPerPage) {
+                pagination.style.display = 'none';
+            }
+
+            function showPage(page) {
+                // Hide all posts
+                posts.forEach(post => post.style.display = 'none');
+
+                // Calculate range
+                const start = (page - 1) * postsPerPage;
+                const end = start + postsPerPage;
+
+                // Show posts for current page
+                posts.slice(start, end).forEach(post => post.style.display = 'block');
+
+                // Update page info
+                pageInfo.textContent = `[ page ${page} / ${totalPages} ]`;
+
+                // Update button states
+                prevBtn.disabled = page === 1;
+                nextBtn.disabled = page === totalPages;
+
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    showPage(currentPage);
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    showPage(currentPage);
+                }
+            });
+
+            // Initialize
+            showPage(currentPage);
+        </script>
     </body>
 </html>
