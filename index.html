@@ -135,7 +135,13 @@
 
             <footer>
                 <p>&gt; end of transmission</p>
-                <p id="visitor-counter" style="margin-top: 10px"></p>
+                <p id="visitor-counter" style="margin-top: 10px">
+                    <span style="color: #00ff41"
+                        >[ unique visitors:
+                        <span id="goat-count" style="color: #00ffff">...</span>
+                        ]</span
+                    >
+                </p>
             </footer>
         </div>
 
@@ -199,19 +205,35 @@
             // Initialize
             showPage(currentPage);
         </script>
+
+        <!-- GoatCounter Analytics -->
+        <script
+            data-goatcounter="https://policyoftruth.goatcounter.com/count"
+            async
+            src="//gc.zgo.at/count.js"
+        ></script>
+
         <script>
-            // Visitor Counter using countapi.xyz
-            const counterEl = document.getElementById("visitor-counter");
-            fetch(
-                "https://api.countapi.xyz/hit/policyoftruth.github.io/unique-visitors",
-            )
-                .then((res) => res.json())
-                .then((data) => {
-                    counterEl.innerHTML = `<span style="color:#00ff41;">[ unique visitors: <span style="color:#00ffff;">${data.value}</span> ]</span>`;
-                })
-                .catch(() => {
-                    counterEl.innerHTML = `<span style="color:#ff0041;">[ visitor count unavailable ]</span>`;
-                });
+            // Fetch visitor count from GoatCounter
+            const goatCountEl = document.getElementById("goat-count");
+
+            // GoatCounter provides a stats API after some visits are logged
+            // For now, show a loading state, then fetch when available
+            setTimeout(() => {
+                fetch(
+                    "https://policyoftruth.goatcounter.com/counter/policyoftruth.github.io.json",
+                )
+                    .then((res) => res.json())
+                    .then((data) => {
+                        const count = data.count || data.count_unique || "N/A";
+                        goatCountEl.textContent = count;
+                    })
+                    .catch(() => {
+                        // If API not available yet, show tracking active message
+                        goatCountEl.innerHTML =
+                            '<span style="color:#00ff88">tracking</span>';
+                    });
+            }, 1000);
         </script>
     </body>
 </html>
