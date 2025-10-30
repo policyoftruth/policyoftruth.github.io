@@ -135,13 +135,6 @@
 
             <footer>
                 <p>&gt; end of transmission</p>
-                <p id="visitor-counter" style="margin-top: 10px">
-                    <span style="color: #00ff41"
-                        >[ page views:
-                        <span id="goat-count" style="color: #00ffff">...</span>
-                        ]</span
-                    >
-                </p>
             </footer>
         </div>
 
@@ -204,30 +197,6 @@
 
             // Initialize
             showPage(currentPage);
-        </script>
-
-        <!-- GoatCounter Analytics -->
-        <script
-            data-goatcounter="https://policyoftruth.goatcounter.com/count"
-            async
-            src="//gc.zgo.at/count.js"
-        ></script>
-
-        <script>
-            // Fetch visitor count from GoatCounter public stats
-            const goatCountEl = document.getElementById("goat-count");
-
-            fetch("https://policyoftruth.goatcounter.com/counter//.json")
-                .then((res) => res.json())
-                .then((data) => {
-                    const count = data.count || data.count_unique || "N/A";
-                    goatCountEl.textContent = count;
-                })
-                .catch((err) => {
-                    console.error("Counter fetch failed:", err);
-                    goatCountEl.innerHTML =
-                        '<span style="color:#ff0041">unavailable</span>';
-                });
         </script>
     </body>
 </html>
