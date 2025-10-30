@@ -137,7 +137,7 @@
                 <p>&gt; end of transmission</p>
                 <p id="visitor-counter" style="margin-top: 10px">
                     <span style="color: #00ff41"
-                        >[ unique visitors:
+                        >[ page views:
                         <span id="goat-count" style="color: #00ffff">...</span>
                         ]</span
                     >
@@ -214,26 +214,20 @@
         ></script>
 
         <script>
-            // Fetch visitor count from GoatCounter
+            // Fetch visitor count from GoatCounter public stats
             const goatCountEl = document.getElementById("goat-count");
 
-            // GoatCounter provides a stats API after some visits are logged
-            // For now, show a loading state, then fetch when available
-            setTimeout(() => {
-                fetch(
-                    "https://policyoftruth.goatcounter.com/counter/policyoftruth.github.io.json",
-                )
-                    .then((res) => res.json())
-                    .then((data) => {
-                        const count = data.count || data.count_unique || "N/A";
-                        goatCountEl.textContent = count;
-                    })
-                    .catch(() => {
-                        // If API not available yet, show tracking active message
-                        goatCountEl.innerHTML =
-                            '<span style="color:#00ff88">tracking</span>';
-                    });
-            }, 1000);
+            fetch("https://policyoftruth.goatcounter.com/counter//.json")
+                .then((res) => res.json())
+                .then((data) => {
+                    const count = data.count || data.count_unique || "N/A";
+                    goatCountEl.textContent = count;
+                })
+                .catch((err) => {
+                    console.error("Counter fetch failed:", err);
+                    goatCountEl.innerHTML =
+                        '<span style="color:#ff0041">unavailable</span>';
+                });
         </script>
     </body>
 </html>
