@@ -305,12 +305,15 @@ article img:hover {
 
 /* Image with caption */
 .img-container {
-    margin: 20px 0;
+    margin: 30px 0;
+    padding: 20px;
     text-align: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 255, 65, 0.2);
 }
 
 .img-container img {
-    margin: 0 auto 10px;
+    margin: 0 auto 15px;
 }
 
 .img-caption {
