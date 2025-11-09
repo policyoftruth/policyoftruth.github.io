@@ -69,6 +69,60 @@ Feel free to modify the template to match your most common post structure!
 - **Code blocks**: Use `<pre><code>` for terminal commands or code snippets
 - **Links**: Use `target="_blank"` for external links
 - **Temp files**: The script saves to `/tmp/blog-post-*.html` as backup
+- **Images**: See the [Adding Images](#adding-images) section below
+
+## Adding Images
+
+Images are stored in the `images/` directory and automatically styled to match your terminal theme.
+
+### Quick Steps
+
+1. **Add your image to the `images/` directory:**
+   ```bash
+   cp ~/Downloads/screenshot.png images/
+   ```
+
+2. **Use in your blog post** (several options):
+
+   **Simple image:**
+   ```html
+   <img src="images/screenshot.png" alt="Description of image">
+   ```
+
+   **Image with caption:**
+   ```html
+   <div class="img-container">
+       <img src="images/screenshot.png" alt="Description">
+       <p class="img-caption">Caption text here</p>
+   </div>
+   ```
+
+   **Inline image (floated right):**
+   ```html
+   <img src="images/screenshot.png" alt="Description" class="img-inline">
+   ```
+
+   **Inline image (floated left):**
+   ```html
+   <img src="images/screenshot.png" alt="Description" class="img-inline-left">
+   ```
+
+3. **Commit both the image and post:**
+   ```bash
+   git add images/screenshot.png index.html
+   git commit -m "New post with image"
+   git push
+   ```
+
+### Image Tips
+
+- **Always include alt text** for accessibility
+- Keep file sizes under 500KB when possible
+- Use descriptive file names: `my-setup-2025-11-08.png`
+- PNG for screenshots, JPG for photos
+- Images get automatic green borders and glow effects matching your theme
+
+For more details, see `images/README.md`
 
 ## Date Format
 
