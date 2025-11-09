@@ -290,12 +290,14 @@ footer {
 /* Images */
 article img {
     max-width: 100%;
+    width: 100%;
     height: auto;
     display: block;
     margin: 20px 0;
     border: 1px solid #00ff41;
     box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
     transition: all 0.3s ease;
+    object-fit: contain;
 }
 
 article img:hover {
@@ -310,10 +312,15 @@ article img:hover {
     text-align: center;
     background-color: rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(0, 255, 65, 0.2);
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .img-container img {
     margin: 0 auto 15px;
+    max-width: 100%;
+    width: auto;
+    max-height: 600px;
 }
 
 .img-caption {
