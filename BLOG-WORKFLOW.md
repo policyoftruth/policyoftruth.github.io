@@ -134,16 +134,6 @@ Examples:
 
 The bash script handles this automatically!
 
-## Clipboard in WSL2
-
-The script automatically detects and uses `clip.exe` (Windows clipboard) in WSL2.
-If you're not in WSL2, it will try to use `xclip` if available.
-
-To install xclip (if needed):
-```bash
-sudo apt-get install xclip
-```
-
 ## Script Options
 
 ```bash

@@ -1,26 +1,45 @@
-# GitHub static site with Route53 DNS via Terragrunt
+# Policy of Truth (policyoftruth.github.io)
 
-## **Manual steps**
-- Purchase route53 domain name
-- Create s3 bucket for state
-- Configure/run Terragrunt
-- Update domain reg with your nameservers from tf outputs
+This repository contains the source code for my personal static website hosted on GitHub Pages, as well as the Infrastructure as Code (IaC) configuration for managing the DNS records.
 
-## **Commands**
-- `terragrunt run --all plan`
+## Project Structure
 
-## **Notes**
-```
-17:37:59.284 STDOUT [route53] tofu: ns_output = tolist([
-17:37:59.284 STDOUT [route53] tofu:   "ns-1499.awsdns-59.org",
-17:37:59.284 STDOUT [route53] tofu:   "ns-172.awsdns-21.com",
-17:37:59.284 STDOUT [route53] tofu:   "ns-1909.awsdns-46.co.uk",
-17:37:59.284 STDOUT [route53] tofu:   "ns-791.awsdns-34.net",
-17:37:59.284 STDOUT [route53] tofu: ])
-```
+The project is divided into two main components:
 
-Take these from the `terragrunt` output and update your AWS registrar DNS as listed:
-```
+1.  **Static Site**: The content of the website itself.
+    -   `index.html`: Main entry point.
+    -   `style.css`: Styling for the site.
+    -   `blog-template.html`: Template for blog posts.
+    -   `scripts/`: Utility scripts.
+    -   `CNAME`: Custom domain configuration for GitHub Pages.
+
+2.  **Infrastructure**: DNS management for the domain.
+    -   `route53/`: Terragrunt configuration for AWS Route53.
+    -   `root.hcl`: Root Terragrunt configuration.
+
+## Infrastructure Status
+
+**Note:** The Terragrunt/OpenTofu parts for infrastructure provisioning are **completed locally**. The current DNS configuration is deployed and active.
+
+The rest of the configuration in this repository pertains to the static GitHub Pages site functionality.
+
+## Usage
+
+### Static Site
+You can edit the HTML and CSS files directly. Changes pushed to the `main` branch are automatically deployed by GitHub Pages.
+
+### Infrastructure (Local)
+Infrastructure changes are managed locally using Terragrunt.
+
+Commands for reference:
+- `terragrunt run-all plan`: Check for changes.
+- `terragrunt run-all apply`: Apply changes.
+
+## Development Notes
+
+### DNS Configuration
+Original nameservers setup (Reference):
+```bash
 source local.env && aws route53domains update-domain-nameservers \
   --domain-name winningham.me \
   --nameservers \
@@ -30,10 +49,6 @@ source local.env && aws route53domains update-domain-nameservers \
     Name=ns-1909.awsdns-46.co.uk
 ```
 
-## **ToDo**
-- Pipeline with github actions
-- Rotate to IAM roles with OIDC (remove long-lived credentials)
-
-## **Resources**
-- <https://docs.github.com/en/github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site>
-- <https://docs.github.com/en/github/working-with-github-pages/troubleshooting-custom-domains-and-github-pages#cname-errors>
+### Future Improvements
+- [ ] Implement GitHub Actions pipeline for infrastructure (currently local).
+- [ ] Rotate to IAM roles with OIDC integration.
