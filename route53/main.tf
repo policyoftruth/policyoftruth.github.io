@@ -11,12 +11,7 @@ resource "aws_route53_record" "pages_a" {
   name    = var.domain_name
   type    = "A"
   ttl     = "300"
-  records = [
-    "185.199.108.153",
-    "185.199.109.153",
-    "185.199.110.153",
-    "185.199.111.153"
-  ]
+  records = var.github_pages_ips
 }
 
 resource "aws_route53_record" "www_cname" {
@@ -24,7 +19,7 @@ resource "aws_route53_record" "www_cname" {
   name    = "www"
   type    = "CNAME"
   ttl     = "3600"
-  records = ["policyoftruth.github.io."]
+  records = [var.github_pages_cname]
 }
 
 resource "aws_route53_record" "txt_spf" {
