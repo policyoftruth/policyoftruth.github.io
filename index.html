@@ -63,6 +63,17 @@
             opacity: 0.8;
             font-size: 0.9rem;
         }
+
+        .artist a {
+            color: inherit;
+            text-decoration: none;
+            transition: text-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+
+        .artist a:hover {
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -1021,8 +1032,7 @@
         </div>
         <div class="artist">
             -- deadmau5,
-            <a href="https://www.libraryofshortstories.com/onlinereader/the-veldt"
-                style="text-decoration: none; color: inherit;">"The Veldt"</a>
+            <a href="https://www.libraryofshortstories.com/onlinereader/the-veldt">"The Veldt"</a>
         </div>
     </main>
 </body>
