@@ -65,10 +65,8 @@ TEMPLATE=$(<"$TEMPLATE_PATH")
 NEW_POST="${TEMPLATE//TITLE_HERE/$TITLE}"
 NEW_POST="${NEW_POST//DATE_HERE/$TIMESTAMP}"
 
-# Save to temporary file securely using mktemp
-TEMP_FILE=$(mktemp /tmp/blog-post-XXXXXX)
-mv "$TEMP_FILE" "${TEMP_FILE}.html"
-TEMP_FILE="${TEMP_FILE}.html"
+# Save to temporary file
+TEMP_FILE="/tmp/blog-post-$(date +%s).html"
 echo "$NEW_POST" > "$TEMP_FILE"
 
 # Try to copy to clipboard (works in WSL2 with clip.exe)
