@@ -28,7 +28,6 @@
             top: 0;
             left: 0;
             width: 100vw;
-            height: 100vh;
             padding: 10px;
             box-sizing: border-box;
             z-index: -1;
@@ -37,9 +36,19 @@
             line-height: 1.2;
             word-wrap: break-word;
             text-align: justify;
-            overflow: hidden;
             user-select: none;
             opacity: 0.6;
+            animation: dataStream 240s linear infinite alternate;
+        }
+
+        @keyframes dataStream {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(calc(-100% + 100vh));
+            }
         }
 
         main {
@@ -1037,8 +1046,9 @@
         </div>
         <div class="artist">
             -- deadmau5,
-            <a href="https://www.libraryofshortstories.com/onlinereader/the-veldt" target="_blank" rel="noopener">"The
-                Veldt"</a>
+            <a href="https://www.libraryofshortstories.com/onlinereader/the-veldt" target="_blank" rel="noopener">
+                "The Veldt"
+            </a>
         </div>
     </main>
 </body>
